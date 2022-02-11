@@ -11,6 +11,8 @@
 // ===== CONST ==============================================================
 #include "ClassC.h"
 #include "ClassD.h"
+#include "ClassE.h"
+#include "ClassF.h"
 
 // Static function declarations
 // //////////////////////////////////////////////////////////////////////////
@@ -18,6 +20,8 @@
 static void Case0();
 static void Case1();
 static void Case2();
+static void Case3();
+static void Case4();
 
 static void DisplayName_ByPtr(const ClassD* aIn);
 static void DisplayName_ByRef(const ClassD& aIn);
@@ -41,6 +45,8 @@ int main(int aCount, const char** aVector)
     case 0: Case0(); break;
     case 1: Case1(); break;
     case 2: Case2(); break;
+    case 3: Case3(); break;
+    case 4: Case4(); break;
 
     default:
         std::cerr << "ERREUR UTILISATEUR  Le numero de cas invalid\n";
@@ -78,6 +84,21 @@ void Case2()
     DisplayName_ByPtr(&lD0);
     DisplayName_ByRef( lD0);
     DisplayName_ByVal( lD0);
+}
+
+void Case3()
+{
+    ClassE lE[3];
+
+    for (unsigned int i = 0; i < 3; i++)
+    {
+        std::cout << "Nom " << i << " : " << lE[i].GetName() << "\n";
+    }
+}
+
+void Case4()
+{
+    ClassF lF0;
 }
 
 void DisplayName_ByPtr(const ClassD* aIn)

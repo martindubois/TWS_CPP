@@ -141,11 +141,15 @@
   <ItemGroup>
     <ClCompile Include="ClassC.cpp" />
     <ClCompile Include="ClassD.cpp" />
+    <ClCompile Include="ClassE.cpp" />
+    <ClCompile Include="ClassF.cpp" />
     <ClCompile Include="CONST.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClassC.h" />
     <ClInclude Include="ClassD.h" />
+    <ClInclude Include="ClassE.h" />
+    <ClInclude Include="ClassF.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -24,12 +24,24 @@
     <ClCompile Include="ClassD.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ClassE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClassF.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClassC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ClassD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClassE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClassF.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
