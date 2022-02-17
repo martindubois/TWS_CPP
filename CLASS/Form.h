@@ -20,7 +20,7 @@ public:
     virtual unsigned int GetInfoCount() const = 0;
     virtual const char * GetInfoName (unsigned int aIndex) const = 0;
 
-    virtual void SetInfo(unsigned int aIndex, double aValue_mm) = 0;
+    virtual void SetInfo(unsigned int aIndex, double aValue) = 0;
 
 protected:
 

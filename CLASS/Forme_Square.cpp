@@ -3,50 +3,49 @@
 // Copyright (C) 2022 KMS
 // License   http ://www.apache.org/licenses/LICENSE-2.0
 // Product   TWS - CPP
-// File      CLASS/Form_Rectangle.cpp
+// File      CLASS/Form_Square.cpp
 
 // ===== C ==================================================================
 #include <assert.h>
 
 // ===== CLASS ==============================================================
-#include "Form_Rectangle.h"
+#include "Form_Square.h"
 
 // Public
 // //////////////////////////////////////////////////////////////////////////
 
-Form_Rectangle::Form_Rectangle() : mBase_mm(1.0), mSide_mm(1.0)
+Form_Square::Form_Square() : mBase_mm(1.0)
 {
 }
 
 // ===== Form ===============================================================
 
-Form_Rectangle::~Form_Rectangle()
+Form_Square::~Form_Square()
 {
 }
 
-double Form_Rectangle::GetArea() const
+double Form_Square::GetArea() const
 {
-    return mBase_mm * mSide_mm;
+    return mBase_mm * mBase_mm;
 }
 
-double Form_Rectangle::GetPerimeter() const
+double Form_Square::GetPerimeter() const
 {
-    return 2 * mBase_mm + 2 * mSide_mm;
+    return 4 * mBase_mm;
 }
 
-unsigned int Form_Rectangle::GetInfoCount() const
+unsigned int Form_Square::GetInfoCount() const
 {
-    return 2;
+    return 1;
 }
 
-const char* Form_Rectangle::GetInfoName(unsigned int aIndex) const
+const char* Form_Square::GetInfoName(unsigned int aIndex) const
 {
     const char* lResult = NULL;
 
     switch (aIndex)
     {
     case 0: lResult = "la base en mm"; break;
-    case 1: lResult = "le cote en mm"; break;
 
     default: assert(false);
     }
@@ -54,12 +53,11 @@ const char* Form_Rectangle::GetInfoName(unsigned int aIndex) const
     return lResult;
 }
 
-void Form_Rectangle::SetInfo(unsigned int aIndex, double aValue)
+void Form_Square::SetInfo(unsigned int aIndex, double aValue)
 {
     switch (aIndex)
     {
     case 0: mBase_mm = aValue; break;
-    case 1: mSide_mm = aValue; break;
 
     default: assert(false);
     }

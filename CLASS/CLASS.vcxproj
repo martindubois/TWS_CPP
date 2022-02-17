@@ -141,11 +141,15 @@
   <ItemGroup>
     <ClCompile Include="CLASS.cpp" />
     <ClCompile Include="Form.cpp" />
+    <ClCompile Include="Forme_Square.cpp" />
+    <ClCompile Include="Form_Parallelogram.cpp" />
     <ClCompile Include="Form_Rectangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Form.h" />
+    <ClInclude Include="Form_Parallelogram.h" />
     <ClInclude Include="Form_Rectangle.h" />
+    <ClInclude Include="Form_Square.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

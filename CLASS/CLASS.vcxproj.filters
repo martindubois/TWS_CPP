@@ -24,12 +24,24 @@
     <ClCompile Include="Form.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Forme_Square.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Form_Parallelogram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Form_Rectangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Form.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Form_Square.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Form_Parallelogram.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -16,7 +16,9 @@
 #include <iostream>
 
 // ===== CLASS ==============================================================
+#include "Form_Parallelogram.h"
 #include "Form_Rectangle.h"
+#include "Form_Square.h"
 
 // Static function declarations
 // //////////////////////////////////////////////////////////////////////////
@@ -106,7 +108,9 @@ Form* CreateForm(const char* aName)
 
     Form* lResult = NULL;
 
-    if (0 == _stricmp("Rectangle", aName)) { lResult = new Form_Rectangle(); }
+    if      (0 == _stricmp("Parallelogram", aName)) { lResult = new Form_Parallelogram(); }
+    else if (0 == _stricmp("Rectangle"    , aName)) { lResult = new Form_Rectangle    (); }
+    else if (0 == _stricmp("Square"       , aName)) { lResult = new Form_Square       (); }
 
     return lResult;
 }

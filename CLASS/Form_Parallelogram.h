@@ -3,25 +3,25 @@
 // Copyright (C) 2022 KMS
 // License   http ://www.apache.org/licenses/LICENSE-2.0
 // Product   TWS - CPP
-// File      CLASS/Form_Rectangle.h
+// File      CLASS/Form_Parallelogram.h
 
 #pragma once
 
 // ===== CLASS ==============================================================
 #include "Form.h"
 
-class Form_Rectangle : public Form
+class Form_Parallelogram : public Form
 {
 
 public:
 
-    Form_Rectangle();
+    Form_Parallelogram();
 
     // ===== Form ===========================================================
 
-    virtual ~Form_Rectangle();
+    virtual ~Form_Parallelogram();
 
-    virtual double GetArea() const;
+    virtual double GetArea     () const;
     virtual double GetPerimeter() const;
 
     virtual unsigned int GetInfoCount() const;
@@ -31,6 +31,7 @@ public:
 
 private:
 
+    double mAngle_deg;
     double mBase_mm;
     double mSide_mm;
 
