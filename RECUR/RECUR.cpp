@@ -81,7 +81,43 @@ void FillArray(unsigned int* aArray, unsigned int aLength)
 
 void QuickSort(unsigned int* aArray, unsigned int aLength)
 {
-    // TODO
+    if (1 < aLength)
+    {
+        unsigned int lPivot = aArray[aLength - 1];
+
+        unsigned int lLeft = 0;
+        unsigned int lRight = aLength - 1;
+
+        while (lLeft < lRight)
+        {
+            while ((lLeft < lRight) && (lPivot > aArray[lLeft]))
+            {
+                lLeft++;
+            }
+
+            if (lLeft < lRight)
+            {
+                aArray[lRight] = aArray[lLeft];
+                lRight--;
+            }
+
+            while ((lLeft < lRight) && (lPivot <= aArray[lRight]))
+            {
+                lRight--;
+            }
+
+            if (lLeft < lRight)
+            {
+                aArray[lLeft] = aArray[lRight];
+                lLeft++;
+            }
+        }
+
+        aArray[lLeft] = lPivot;
+
+        QuickSort(aArray, lLeft);
+        QuickSort(aArray + lLeft + 1, aLength - lLeft - 1);
+    }
 }
 
 void SimpleSort(unsigned int* aArray, unsigned int aLength)
