@@ -45,7 +45,7 @@ int main()
             else if (0 == _stricmp("?\n"   , lLine)) { DisplayHelp(); }
             else if (0 == _stricmp("clear\n", lLine)) { lSC.Clear(); }
             else if (0 == _stricmp("cos\n" , lLine)) { DisplayValue(lSC.Cosinus()); }
-            else if (0 == _stricmp("sin\n" , lLine)) { DisplayValue(lSC.Cosinus()); }
+            else if (0 == _stricmp("sin\n" , lLine)) { DisplayValue(lSC.Sinus()); }
             else if (0 == _stricmp("sqrt\n", lLine)) { DisplayValue(lSC.SquareRoot()); }
             else if (0 == _stricmp("tan\n" , lLine)) { DisplayValue(lSC.Tangent()); }
             else if (0 == _stricmp("+\n"   , lLine)) { DisplayValue(lSC.Add()); }

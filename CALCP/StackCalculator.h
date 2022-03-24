@@ -66,6 +66,10 @@ public:
 
 private:
 
+    double PopValue();
+
     typedef std::stack<double> ValueStack;
+
+    ValueStack mStack;
 
 };
