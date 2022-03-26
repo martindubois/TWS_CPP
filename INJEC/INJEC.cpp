@@ -36,6 +36,9 @@ static void _cdecl OnSigInt(int aSignal);
 
 int main(int aCount, const char ** aVector)
 {
+    assert(1 <= aCount);
+    assert(NULL != aVector);
+
     if (2 > aCount)
     {
         std::cerr << "USER ERROR  You must pass the COM port name or the file name as first argument\n";
@@ -98,6 +101,8 @@ int main(int aCount, const char ** aVector)
 
 void OnSigInt(int aSignal)
 {
+    assert(SIGINT == aSignal);
+
     std::cout << "\nCtrl-C\n";
 
     sStop = true;
