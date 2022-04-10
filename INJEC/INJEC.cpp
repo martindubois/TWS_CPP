@@ -45,6 +45,8 @@ int main(int aCount, const char ** aVector)
         return 1;
     }
 
+    assert(NULL != aVector[1]);
+
     _crt_signal_t lSig = signal(SIGINT, OnSigInt);
     assert(SIG_DFL == lSig);
 
