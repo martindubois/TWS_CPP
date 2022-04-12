@@ -24,6 +24,4 @@ private:
 
 };
 
-// TODO
-// Declarer l'operateur permettant d'afficher la puissance en utilisant la
-// class ostream.
+std::ostream& operator << (std::ostream& aOut, const Tank& aTank);

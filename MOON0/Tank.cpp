@@ -59,5 +59,9 @@ double Tank::GetFuel(double aRequested_l)
 
 double Tank::GetLevel() const { return mLevel_l; }
 
-// TODO
-// Definir l'operateur d'affichage
+std::ostream& operator << (std::ostream& aOut, const Tank& aTank)
+{
+    aOut << "Level: " << aTank.GetLevel() << " l";
+
+    return aOut;
+}

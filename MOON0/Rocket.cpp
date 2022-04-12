@@ -7,6 +7,9 @@
 
 #include "Component.h"
 
+// ===== C++ ================================================================
+#include <iomanip>
+
 // ===== MOON0 ==============================================================
 #include "Rocket.h"
 
@@ -43,8 +46,8 @@ void Rocket::Command(char aLetter)
 {
     switch (aLetter)
     {
-    case '-': break; // TODO mMotor--;
-    case '+': break; // TODO mMotor++;
+    case '-': mMotor--; break;
+    case '+': mMotor++; break;
     case '*': mMotor.FullPower(); break;
     case '/': mMotor.HalfPower(); break;
 
@@ -86,6 +89,18 @@ void Rocket::Simulate()
             mTime_100ns = lNow_100ns;
         }
     }
+}
+
+std::ostream& operator << (std::ostream& aOut, const Rocket& aRocket)
+{
+    aOut << std::fixed << std::setprecision(1);
+    aOut << "Altitude: " << aRocket.GetAltitude() << " m - ";
+    aOut << "Speed: " << aRocket.GetSpeed() << " m/s - ";
+    aOut << aRocket.mMotor << " - ";
+    aOut << aRocket.mTank << " - ";
+    aOut << aRocket.mAutoPilote << "    \r";
+
+    return aOut;
 }
 
 // Private

@@ -35,13 +35,7 @@ int main()
 
         lRocket.Simulate();
 
-        // TODO std::cout << lRocket;
-        printf("Altitude: %4.1f m - Speed: %3.1f m/s - Power: %3.1f %% - Fuel: %3.1f l - %s  \r",
-            lRocket.GetAltitude(),
-            lRocket.GetSpeed(),
-            lRocket.mMotor.GetPower() * 100.0,
-            lRocket.mTank.GetLevel(),
-            lRocket.mAutoPilote.IsEnabled() ? "Auto" : "Manual");
+        std::cout << lRocket;
     }
 
     double lFinalSpeed_m_s = lRocket.GetSpeed();

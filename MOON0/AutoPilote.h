@@ -30,6 +30,10 @@ public:
 
     void Simulate(double aAltitude_m, double aSpeed_m_s);
 
+// internal
+
+    double GetTargetSpeed() const;
+
 private:
 
     bool mEnable;
@@ -37,8 +41,8 @@ private:
     Motor* mMotor;
     Tank * mTank;
 
+    double mTargetSpeed_m_s;
+
 };
 
-// TODO
-// Declarer l'operateur permettant d'afficher l'etat en utilisant la classe
-// ostream.
+std::ostream& operator << (std::ostream& aOut, const AutoPilote& aAuto);

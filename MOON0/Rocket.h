@@ -44,6 +44,4 @@ private:
 
 };
 
-// TODO
-// Declarer l'operateur permettant d'afficher les informations en utilisant
-// la class ostream.
+std::ostream& operator << (std::ostream& aOut, const Rocket& aRocket);
