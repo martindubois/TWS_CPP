@@ -18,9 +18,9 @@
 
 // ===== IFileInfo ==========================================================
 
-void FileInfo_Text::DisplayInformation() const
+void FileInfo_Text::DisplayInformation(unsigned int aIndent) const
 {
-    FileInfo_Base::DisplayInformation();
+    FileInfo_Base::DisplayInformation(aIndent);
 
     std::cout << std::setw(6) << mLineCount << " lignes";
 }

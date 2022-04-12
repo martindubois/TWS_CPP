@@ -15,9 +15,9 @@
 
 // ===== IFileInfo ==========================================================
 
-void FileInfo_H::DisplayInformation() const
+void FileInfo_H::DisplayInformation(unsigned int aIndent) const
 {
-    FileInfo_Text::DisplayInformation();
+    FileInfo_Text::DisplayInformation(aIndent);
 
     std::cout << "  Langage C/C++ - Fichier entete\n";
 }

@@ -3,21 +3,26 @@
 // Copyright (C) 2022 KMS
 // License   http://www.apache.org/licenses/LICENSE-2.0
 // Product   TWS - CPP
-// File      SuperDir/FileInfo_Other.cpp
+// File      SuperDir/ThreadList.cpp
 
 #include "Component.h"
 
 // ===== SuperDir ===========================================================
-#include "FileInfo_Other.h"
+#include "ThreadList.h"
 
 // Public
 // //////////////////////////////////////////////////////////////////////////
 
-// ===== IFileInfo ==========================================================
-
-void FileInfo_Other::DisplayInformation(unsigned int aIndent) const
+void ThreadList::WaitAndClose()
 {
-    FileInfo_Binary::DisplayInformation(aIndent);
+    for (HANDLE lThread : *this)
+    {
+        assert(NULL != lThread);
 
-    std::cout << "\n";
+        DWORD lRet = WaitForSingleObject(lThread, 60000);
+        assert(WAIT_OBJECT_0 == lRet);
+
+        BOOL lRetB = CloseHandle(lThread);
+        assert(lRetB);
+    }
 }

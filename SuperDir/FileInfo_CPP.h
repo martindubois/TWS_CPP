@@ -16,6 +16,6 @@ class FileInfo_CPP : public FileInfo_Text
 public:
 
     // ===== IFileInfo ======================================================
-    virtual void DisplayInformation() const;
+    virtual void DisplayInformation(unsigned int aIndent = 0) const;
 
 };

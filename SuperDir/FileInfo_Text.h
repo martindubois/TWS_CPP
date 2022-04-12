@@ -16,7 +16,7 @@ class FileInfo_Text : public FileInfo_Base
 public:
 
     // ===== IFileInfo ======================================================
-    virtual void DisplayInformation () const;
+    virtual void DisplayInformation (unsigned int aIndent) const;
     virtual void RetrieveInformation();
 
 protected:

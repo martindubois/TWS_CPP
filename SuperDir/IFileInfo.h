@@ -7,6 +7,9 @@
 
 #pragma once
 
+// ===== C++ ================================================================
+#include <list>
+
 class IFileInfo
 {
 
@@ -16,8 +19,10 @@ public:
 
     virtual void Init(const char* aFolder, const char* aFile) = 0;
 
-    virtual void DisplayInformation() const = 0;
+    virtual void DisplayInformation(unsigned int aIndent = 0) const = 0;
 
     virtual void RetrieveInformation() = 0;
 
 };
+
+typedef std::list<IFileInfo*> FileInfoList;

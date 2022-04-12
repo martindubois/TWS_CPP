@@ -16,7 +16,7 @@ class FileInfo_Binary : public FileInfo_Base
 public:
 
     // ===== IFileInfo ======================================================
-    virtual void DisplayInformation() const;
+    virtual void DisplayInformation (unsigned int aIndent = 0) const;
     virtual void RetrieveInformation();
 
 protected:

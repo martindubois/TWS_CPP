@@ -15,9 +15,9 @@
 
 // ===== IFileInfo ==========================================================
 
-void FileInfo_CPP::DisplayInformation() const
+void FileInfo_CPP::DisplayInformation(unsigned int aIndent) const
 {
-    FileInfo_Text::DisplayInformation();
+    FileInfo_Text::DisplayInformation(aIndent);
 
     std::cout << "  Langage C++ - Fichier source\n";
 }

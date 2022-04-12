@@ -15,9 +15,9 @@
 
 // ===== IFileInfo ==========================================================
 
-void FileInfo_EXE::DisplayInformation() const
+void FileInfo_EXE::DisplayInformation(unsigned int aIndent) const
 {
-    FileInfo_Binary::DisplayInformation();
+    FileInfo_Binary::DisplayInformation(aIndent);
 
     std::cout << "  Executable\n";
 }

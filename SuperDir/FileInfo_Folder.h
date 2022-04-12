@@ -3,19 +3,29 @@
 // Copyright (C) 2022 KMS
 // License   http://www.apache.org/licenses/LICENSE-2.0
 // Product   TWS - CPP
-// File      SuperDir/FileInfo_H.h
+// File      SuperDir/FileInfo_Folder.h
 
 #pragma once
 
 // ===== SuperDir ===========================================================
-#include "FileInfo_Text.h"
+#include "FileInfo_Base.h"
 
-class FileInfo_H : public FileInfo_Text
+class FileInfo_Folder : public FileInfo_Base
 {
 
 public:
 
     // ===== IFileInfo ======================================================
-    virtual void DisplayInformation(unsigned int aIndent = 0) const;
+
+    virtual ~FileInfo_Folder();
+
+    virtual void DisplayInformation (unsigned int aIndent = 0) const;
+    virtual void RetrieveInformation();
+
+private:
+
+    void CallRetrieveInformations();
+
+    FileInfoList mFiles;
 
 };

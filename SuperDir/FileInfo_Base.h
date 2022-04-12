@@ -17,18 +17,22 @@ public:
 
     // ===== IFileInfo ======================================================
     virtual void Init(const char* aFolder, const char* aFile);
-    virtual void DisplayInformation() const;
+    virtual void DisplayInformation(unsigned int aIndent = 0) const;
 
 
 protected:
 
     FileInfo_Base();
 
+    bool IsFile(const char * aFile) const;
+
+    bool IsRoot() const;
+
     void RetrieveFileName(char* aOut, unsigned int aOutSize_byte) const;
 
 private:
 
-    char mFile  [256];
-    char mFolder[256];
+    std::string mFile;
+    std::string mFolder;
 
 };

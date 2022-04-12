@@ -45,6 +45,12 @@
     <ClCompile Include="FileInfo_Text.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FileInfo_Folder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Functions.h">
@@ -75,6 +81,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Component.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileInfo_Folder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

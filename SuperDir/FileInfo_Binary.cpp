@@ -31,9 +31,9 @@ const char * UNITS[UNIT_QTY] = { "o  ", "Kio", "Mio", "Gio" };
 
 // ===== IFileInfo ==========================================================
 
-void FileInfo_Binary::DisplayInformation() const
+void FileInfo_Binary::DisplayInformation(unsigned int aIndent) const
 {
-    FileInfo_Base::DisplayInformation();
+    FileInfo_Base::DisplayInformation(aIndent);
 
     uint64_t     lSize = mSize_byte;
     unsigned int lUnit = 0;

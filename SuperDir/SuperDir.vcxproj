@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="FileInfo_CPP.cpp" />
     <ClCompile Include="FileInfo_EXE.cpp" />
+    <ClCompile Include="FileInfo_Folder.cpp" />
     <ClCompile Include="FileInfo_H.cpp" />
     <ClCompile Include="FileInfo_Base.cpp" />
     <ClCompile Include="FileInfo_Binary.cpp" />
@@ -149,6 +150,7 @@
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="IFileInfo.cpp" />
     <ClCompile Include="SuperDir.cpp" />
+    <ClCompile Include="ThreadList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h" />
@@ -156,11 +158,13 @@
     <ClInclude Include="FileInfo_Binary.h" />
     <ClInclude Include="FileInfo_CPP.h" />
     <ClInclude Include="FileInfo_EXE.h" />
+    <ClInclude Include="FileInfo_Folder.h" />
     <ClInclude Include="FileInfo_H.h" />
     <ClInclude Include="FileInfo_Other.h" />
     <ClInclude Include="FileInfo_Text.h" />
     <ClInclude Include="Functions.h" />
     <ClInclude Include="IFileInfo.h" />
+    <ClInclude Include="ThreadList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

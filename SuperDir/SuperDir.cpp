@@ -7,8 +7,11 @@
 
 #include "Component.h"
 
+// ===== Windows ============================================================
+#include <Windows.h>
+
 // ===== SuperDir ===========================================================
-#include "Functions.h"
+#include "FileInfo_Folder.h"
 
 // Entry point
 // //////////////////////////////////////////////////////////////////////////
@@ -24,13 +27,28 @@ int main(int aCount, const char** aVector)
         return 1;
     }
 
-    IFileInfo** lFiles = FindFiles(aVector[1]);
+    uint64_t lBegin;
 
-    RetrieveInformation(lFiles);
+    GetSystemTimePreciseAsFileTime(reinterpret_cast<FILETIME*>(&lBegin));
 
-    DisplayInformation(lFiles);
+    FileInfo_Folder lRoot;
 
-    ReleaseMemory(lFiles);
+    lRoot.Init("", aVector[1]);
+
+    lRoot.RetrieveInformation();
+
+    uint64_t lEnd;
+
+    GetSystemTimePreciseAsFileTime(reinterpret_cast<FILETIME*>(&lEnd));
+
+    uint64_t lDuration_100ns = lEnd - lBegin;
+    double lDuration_us = static_cast<double>(lDuration_100ns / 10);
+    double lDuration_ms = lDuration_us / 1000;
+    double lDuration_s = lDuration_ms / 1000;
+
+    printf("Execution en %f s\n", lDuration_s);
+
+    lRoot.DisplayInformation();
 
     return 0;
 }
