@@ -3,7 +3,7 @@
 // Copyright (C) 2022 KMS
 // License   http://www.apache.org/licenses/LICENSE-2.0
 // Product   TWS - CPP
-// File      MOON0/Motor.cpp
+// File      LIBDY/Motor.cpp
 
 #include "Component.h"
 

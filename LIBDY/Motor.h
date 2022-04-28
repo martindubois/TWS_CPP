@@ -3,11 +3,11 @@
 // Copyright (C) 2022 KMS
 // License   http://www.apache.org/licenses/LICENSE-2.0
 // Product   TWS - CPP
-// File      MOON0/Motor.h
+// File      LIBDY/Motor.h
 
 #pragma once
 
-// ===== MOON0 ==============================================================
+// ===== LIBDY ==============================================================
 class Tank;
 
 class Motor

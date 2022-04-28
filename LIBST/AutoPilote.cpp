@@ -3,62 +3,72 @@
 // Copyright (C) 2022 KMS
 // License   http://www.apache.org/licenses/LICENSE-2.0
 // Product   TWS - CPP
-// File      MOON0/AutoPilote.cpp
+// File      LIBST/AutoPilote.cpp
 
 #include "Component.h"
 
 // ===== MOON0 ==============================================================
-#include "Motor.h"
+#include <LIBST/Motor.h>
 
-#include "AutoPilote.h"
+#include <LIBST/AutoPilote.h>
 
 // Static function declaration
 // //////////////////////////////////////////////////////////////////////////
 
 static double ComputeTargetSpeed(double aAltitude_m);
 
-// Public
-// //////////////////////////////////////////////////////////////////////////
-
-AutoPilote::AutoPilote() : mEnable(false), mMotor(NULL), mTank(NULL)
+namespace LIBST
 {
-}
 
-void AutoPilote::Disable() { mEnable = false; }
-void AutoPilote::Enable () { mEnable = true ; }
+    // Public
+    // //////////////////////////////////////////////////////////////////////
 
-bool AutoPilote::IsEnabled() const { return mEnable; }
-
-void AutoPilote::SetMotor(Motor* aMotor) { assert(NULL != aMotor); mMotor = aMotor; }
-void AutoPilote::SetTank (Tank * aTank ) { assert(NULL != aTank ); mTank  = aTank ; }
-
-void AutoPilote::Simulate(double aAltitude_m, double aSpeed_m_s)
-{
-    assert(0.0 < aAltitude_m);
-
-    if (mEnable)
+    AutoPilote::AutoPilote() : mEnable(false), mMotor(NULL), mTank(NULL)
     {
-        mTargetSpeed_m_s = ComputeTargetSpeed(aAltitude_m);
+    }
 
-        double lMaxPower = 0.89;
+    void AutoPilote::Disable() { mEnable = false; }
+    void AutoPilote::Enable() { mEnable = true; }
 
-        if (10.0 > aAltitude_m) { lMaxPower = 1.0; }
+    bool AutoPilote::IsEnabled() const { return mEnable; }
 
-        if (aSpeed_m_s < mTargetSpeed_m_s)
+    void AutoPilote::SetMotor(Motor* aMotor) { assert(NULL != aMotor); mMotor = aMotor; }
+    void AutoPilote::SetTank(Tank* aTank) { assert(NULL != aTank); mTank = aTank; }
+
+    void AutoPilote::Simulate(double aAltitude_m, double aSpeed_m_s)
+    {
+        assert(0.0 < aAltitude_m);
+
+        if (mEnable)
         {
-            if (lMaxPower > mMotor->GetPower())
+            mTargetSpeed_m_s = ComputeTargetSpeed(aAltitude_m);
+
+            double lMaxPower = 0.89;
+
+            if (10.0 > aAltitude_m) { lMaxPower = 1.0; }
+
+            if (aSpeed_m_s < mTargetSpeed_m_s)
             {
-                (*mMotor)++;
+                if (lMaxPower > mMotor->GetPower())
+                {
+                    (*mMotor)++;
+                }
+            }
+            else
+            {
+                (*mMotor)--;
             }
         }
-        else
-        {
-            (*mMotor)--;
-        }
     }
+
+    // Internal
+    // //////////////////////////////////////////////////////////////////////
+
+    double AutoPilote::GetTargetSpeed() const { return mTargetSpeed_m_s; }
+
 }
 
-std::ostream& operator << (std::ostream& aOut, const AutoPilote& aAutoPilote)
+std::ostream& operator << (std::ostream& aOut, const LIBST::AutoPilote& aAutoPilote)
 {
     if (aAutoPilote.IsEnabled())
     {
@@ -71,11 +81,6 @@ std::ostream& operator << (std::ostream& aOut, const AutoPilote& aAutoPilote)
 
     return aOut;
 }
-
-// Internal
-// //////////////////////////////////////////////////////////////////////////
-
-double AutoPilote::GetTargetSpeed() const { return mTargetSpeed_m_s; }
 
 // Static function declaration
 // //////////////////////////////////////////////////////////////////////////

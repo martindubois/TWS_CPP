@@ -1,0 +1,90 @@
+
+// Author    KMS - Martin Dubois, P. Eng.
+// Copyright (C) 2022 KMS
+// License   http://www.apache.org/licenses/LICENSE-2.0
+// Product   TWS - CPP
+// File      LIBST/Motor.h
+
+#include "Component.h"
+
+// ===== MOON0 ==============================================================
+#include <LIBST/Tank.h>
+
+#include <LIBST/Motor.h>
+
+// Constants
+// //////////////////////////////////////////////////////////////////////////
+
+#define ACCELERATION_MAX_m_s2 (3.0)
+
+#define POWER_MAX_l_s (2.0)
+
+// Remarquez que le moteur est a sa meilleur efficacite entre 60 et 80 % de
+// puissance
+const double EFFICIENCY[] =
+{
+    0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.0, 1.0, 0.95, 0.9
+};
+
+namespace LIBST
+{
+
+    // Public
+    // //////////////////////////////////////////////////////////////////////////
+
+    Motor::Motor() : mPower(0.0), mTank(NULL)
+    {
+    }
+
+    const Motor& Motor::operator ++ (int)
+    {
+        if (0.99 >= mPower)
+        {
+            mPower += 0.01;
+        }
+
+        return *this;
+    }
+
+    const Motor& Motor::operator -- (int)
+    {
+        if (0.01 <= mPower)
+        {
+            mPower -= 0.01;
+        }
+
+        return *this;
+    }
+
+    double Motor::GetAcceleration(double aDelta_s)
+    {
+        assert(0.0 < aDelta_s);
+
+        assert(0.0 <= mPower);
+        assert(1.0 >= mPower);
+
+        double lFuel_l = mPower * POWER_MAX_l_s * aDelta_s;
+
+        mPower *= mTank->GetFuel(lFuel_l);
+
+        double lEfficiency = EFFICIENCY[static_cast<unsigned int>(10 * mPower)];
+
+        return mPower * lEfficiency * ACCELERATION_MAX_m_s2;
+    }
+
+    double Motor::GetPower() const { return mPower; }
+
+    void Motor::FullPower() { mPower = 1.0; }
+    void Motor::HalfPower() { mPower = 0.5; }
+    void Motor::Off() { mPower = 0.0; }
+
+    void Motor::SetTank(Tank* aTank) { mTank = aTank; }
+
+}
+
+std::ostream& operator << (std::ostream& aOut, const LIBST::Motor& aMotor)
+{
+    aOut << "Power: " << aMotor.GetPower() * 100.0 << " %";
+
+    return aOut;
+}

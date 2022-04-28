@@ -3,7 +3,7 @@
 // Copyright (C) 2022 KMS
 // License   http://www.apache.org/licenses/LICENSE-2.0
 // Product   TWS - CPP
-// File      MOON0/AutoPilote.cpp
+// File      LIBDY/AutoPilote.cpp
 
 #include "Component.h"
 
@@ -15,6 +15,12 @@
 // Static function declaration
 // //////////////////////////////////////////////////////////////////////////
 
+// COMMENTAIRE PEDAGOGIQUE
+// La fonction ComputeTargetSpeed n'est pas une methode de la classe. C'est
+// simplement une fonction. Comme elle n'utilise aucune variable membre de la
+// classe AutoPilote, c'etait possible de la coder ainsi. L'avantage est que
+// celle-ci n'a pas a etre declaree dans la classe contrairement a une
+// methode privee.
 static double ComputeTargetSpeed(double aAltitude_m);
 
 // Public

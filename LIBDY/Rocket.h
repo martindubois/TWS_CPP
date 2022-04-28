@@ -3,32 +3,39 @@
 // Copyright (C) 2022 KMS
 // License   http://www.apache.org/licenses/LICENSE-2.0
 // Product   TWS - CPP
-// File      MOON0/Rocket.h
+// File      LIBDY/Rocket.h
 
 #pragma once
 
-// ===== MOON0 ==============================================================
+// ===== Common =============================================================
+#include <LIBDY/IRocket.h>
+
+// ===== LIBDY ==============================================================
 #include "AutoPilote.h"
 #include "Motor.h"
 #include "Tank.h"
 
-class Rocket
+class Rocket : public LIBDY::IRocket
 {
 
 public:
 
     Rocket();
 
-    void Command(char aLetter);
-
-    double GetAltitude() const;
-    double GetSpeed() const;
-
-    void Simulate();
-
     AutoPilote mAutoPilote;
     Motor      mMotor;
     Tank       mTank;
+
+    // ===== LIBDY::Rocket ==================================================
+
+    virtual void Destroy();
+
+    virtual void Command(char aLetter);
+
+    virtual double GetAltitude() const;
+    virtual double GetSpeed   () const;
+
+    virtual void Simulate();
 
 private:
 

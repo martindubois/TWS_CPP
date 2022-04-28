@@ -3,7 +3,7 @@
 // Copyright (C) 2022 KMS
 // License   http://www.apache.org/licenses/LICENSE-2.0
 // Product   TWS - CPP
-// File      MOON0/Rocket.cpp
+// File      LIBDY/Rocket.cpp
 
 #include "Component.h"
 
@@ -31,6 +31,10 @@ Rocket::Rocket() : mAltitude_m(INITIAL_ALTITUDE_m), mPause(true), mSpeed_m_s(INI
 
     mMotor.SetTank(&mTank);
 }
+
+// ===== LIBDY::IRocket =====================================================
+
+void Rocket::Destroy() { delete this; }
 
 // Les commandes !
 // -    Diminue la puissance de 0.1

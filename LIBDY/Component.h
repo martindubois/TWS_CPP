@@ -3,13 +3,12 @@
 // Copyright (C) 2022 KMS
 // License   http://www.apache.org/licenses/LICENSE-2.0
 // Product   TWS - CPP
-// File      MOON0/Component.h
+// File      LIBDY/Component.h
 
 #pragma once
 
 // ===== C ==================================================================
 #include <assert.h>
-#include <stdint.h>
 
 // ===== C++ ================================================================
 #include <iostream>
